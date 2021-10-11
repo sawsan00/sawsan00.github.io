@@ -4,24 +4,35 @@
 <head>
 <meta charset="utf-8">
 <title> MyWebsite</title> <!--Website Name-->
+<style>
+     li.a {
+         list-style-type: square;
+     }
+     ol.b {
+         list-style-type: upper-roman;
+     }
+     .special { color: rgb(129, 101, 138);
+
+     }
+</style>
 </head>
 
 <body>
 
 
-<h1>Sawsan Awad Alasmri-441670360</h1>
+<h1 class="special">Sawsan Awad Alasmri-441670360</h1>
 <hr> <!--inserts a horizontal rule-->
 <img src="imageS.png" width ="600" height="200">
 <p><strong> Course Sheet:</strong></p> <!--Bold text لان المطلوب Strongتم وضعه-->
-<li>HTML:
+<li class="a">HTML:
     <!-- nested ordered list يندرج  تحتها -->
-    <ol>
+    <ol class="b">
         <li><a href="Sheet2.html">sheet2</a></li>
         <li><a href="Sheet3.html"> Sheet3</a></li>
     </ol>
 </li> <!-- nested ordered list يكون اغلاق التاق بعد الانتهاءمن-->
-<li>CSS:</li> 
-<li>Javasrcipt:</li>
-<li>PHP</li>
+<li class="a">CSS:</li> 
+<li class="a">Javasrcipt:</li>
+<li class="a">PHP</li>
 </body>
 </html>
