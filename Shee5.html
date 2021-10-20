@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>BMI Calculator</title>
+    <script type="text/javascript">
+        function computeBMI()
+        {
+            //Obtain user inputs
+            var height=Number(document.getElementById("height").value);
+            var heightunits=document.getElementById("heightunits").value;
+            var weight=Number(document.getElementById("weight").value);
+            var weightunits=document.getElementById("weightunits").value;
+
+
+            //Perform calculation
+            var BMI=weight/Math.pow(height,2);
+
+            
+            document.getElementById("output").innerText=Math.round(BMI*100)/100;
+
+
+            if (output>=22.20 )
+            document.getElementById("comment").value = "That you are healthy";
+
+        }
+    </script>
+</head>
+<body>
+    <h1>BMI Calculator Create Using JavaScript</h1>
+    <p>Your Weight(kg): <input type="text" id="weight"/>
+        <select type="multiple" id="weightunits">
+            <option value="kg" selected="selected">kilograms</option>
+           
+        </select>
+    </p>
+
+    <p>Your Height(cm): <input type="text" id="height"/>
+        <select type="multiple" id="heightunits">
+            <option value="metres" selected="selected">metres</option>
+           
+        </select>
+    </p>  
+
+   
+
+
+    <input type="submit" value="Calculate BMI" onclick="computeBMI();">
+    <p>Your BMI: <span id="output"> </span></p>
+    <p>This Means Your BMI: </p> 
+
+   
+</body>
+</html>
