@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sh5</title> 
+    </head>
+
+    <body>
+        <label>Name </label>&nbsp;
+       <input type="text" name="pname" id="pname"></input>
+       <br><br>
+        
+         <input type="button" name="btncal" value="Submit"
+       onclick="display()"></input>
+        <p id="msg" style="font-weight:bold;font-size:16px;"></p>
+        <!-- Java Script code -->
+        <script language="javascript">
+        // function to display Welcome message
+        function display()
+        {
+        var msg="";
+        // to get name from textfiled
+        var pname=
+       document.getElementById("pname").value;
+       // To get hours from system
+        const dat = new Date();
+        var hour = dat.getHours();
+        if(hour >= 0 && hour < 12)
+        {
+        msg = "Good Morning";
+        }
+        if(hour >= 12 && hour < 24)
+        {
+        msg = "Good Afternoon";
+        }
+        var w_msg = msg+" "+pname;
+        // to dispaly message on paragraph tag
+        document.getElementById("msg").innerHTML =
+       w_msg; }
+        </script>
+       </body>
+</html>
