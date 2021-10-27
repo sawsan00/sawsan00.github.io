@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta charset="utf-8">
+        <title>Sheet6</title> 
+ <style>
+ .e { color:red;}
+ </style>
+ <script>
+ function validateForm() {
+ var r = true;
+ var x=document.getElementById("name").value;
+ var pass = document.getElementById("password").value;
+ //name should contaibn only letter
+ var regEx = /^[A-Za-z]+$/;
+ if (!(x.match(regEx)))
+ {document.getElementById('e1').innerHTML= "* only letter is allowed";
+
+ document.getElementById('name').style.borderColor='red';
+ r= false;}
+ else
+ { document.getElementById('e1').innerHTML= " ";
+ document.getElementById('name').style.borderColor='black';
+ }
+ return r;
+ //password
+ var pass = document.getElementById("password").value;
+ if (pass.length<6) {
+     document.getElementById('pass').innerHTML= "* password must be filled out";
+    document.getElementById('password').style.borderColor='red';
+    r= false; }
+    else
+    {
+        document.getElementById('pass').innerHTML= " ";
+        document.getElementById("password").style.borderColor="black"
+    }
+    return r;
+ }
+
+   
+ </script>
+</head>
+<body>
+ <h1> SIGN UP </h1>
+<form onsubmit="return validateForm()">
+ Full name:
+ <input type="text" id="name" ><span class= "e"></span><br><br>
+ User Name:
+ <input type="text" id="username"> <br><br>
+ password:
+ <input type="password" id="pass"><span class="e"></span> <br><br>
+ Confrim password:
+ <input type="password" id="pass2><span class="e"></span>  <br><br>
+ 
+ <input type="button" onclick="validateForm()" value="SING UP">
+</form>
+</body>
+</html>
