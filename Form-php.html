@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html> 
+    <head>
+        <title>PHP Form</title>
+        <meta charset="utf-8">
+        <style>
+            .error {color: rgb(204, 22, 22);}
+        </style>
+    </head>
+<body>
+    <!--MYSQL-->
+    <?php
+     $serveruname = "localhost": 
+     $fname = "fname";
+      $password = "password";
+      $email = "$email";
+     // Create connection
+      $conn mysqli_connect($serveruname, $password,$fname, $email);
+      // Check connection 
+      if (!$conn) {
+           die("Connection failed: ". mysqli connect_error()); 
+           echo "Connected successfully":
+            ?>
+<!--part php-->
+<?php
+$unameErr = $fnameErr = $emailErr = $passwordErr = "";
+$uname = $fname = $email = $comment = $password = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+   if (empty($_POST["fname"])) {
+     $fnameErr = "Name is required";
+   } else {
+     $fname = test_input($_POST["fname"]);
+    
+     if (!preg_match("/^[a-zA-Z ]*$/",$fname)) {
+       $fnameErr = "must Only contain letters"; 
+     }
+   }
+   
+   if (empty($_POST["email"])) {
+     $emailErr = "Email is required";
+   } else {
+     $email = test_input($_POST["email"]);
+     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+       $emailErr = "Invalid email format"; 
+     }
+   }
+     
+   if (empty($_POST["password"])) {
+    $password= "Name is required";
+   } else {
+    $password = test_input($_POST["password"]);
+        $fnameErr = "must Only contain letters"; 
+     }
+   }
+
+
+function test_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+?>
+
+
+
+
+<!--part form-->
+<h1>Sing Up</h1>
+
+<form action="singup.php" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF" ]);?> <br>
+
+        <input type="text" class="form-control" name="Uname" placeholder="Username" required> 
+        
+    <br><br>
+    
+        <input type="text" class="form-control" name="fname" placeholder="Fullname" required> 
+        <span class="error">* must only contain letters</span>
+    <br> <br>
+    
+        <input type="text" class="form-control" name="email" placeholder="Email Address" required> 
+        
+    <br> <br>
+ 
+        <input type="password" class="form-control" name="password" placeholder="Password" required> 
+       
+<br> <br>
+   
+        <input type="password" class="form-control" name="confirm password" placeholder="Confirm Password" required> 
+       
+    <br> <br>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-lg">Sing UP</button>
+    </div>
+   
+</form>
+</body>
+</html>
